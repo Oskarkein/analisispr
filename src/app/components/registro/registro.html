@@ -1,0 +1,47 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <div class="auth-icon"></div>
+      <mat-card-title>Crear Cuenta</mat-card-title>
+      <mat-card-subtitle>Completa tus datos para el sistema</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="registroForm" (ngSubmit)="onRegistrar()" class="auth-form">
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre Completo</mat-label>
+          <input matInput formControlName="nombre" placeholder="Nombre Completo">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de Usuario</mat-label>
+          <input matInput formControlName="usuario" placeholder="Usuario">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput type="email" formControlName="correo" placeholder="correo@ejemplo.com">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Teléfono</mat-label>
+          <input matInput formControlName="telefono" placeholder="0000-0000">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="registroForm.invalid" class="btn-block">
+          CREAR CUENTA
+        </button>
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer class="auth-footer">
+      <a mat-button routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a>
+    </mat-card-footer>
+  </mat-card>
+</div>

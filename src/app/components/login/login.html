@@ -1,0 +1,32 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <div class="auth-icon"></div>
+      <mat-card-title>Venta de Repuestos</mat-card-title>
+      <mat-card-subtitle>Ingresa para continuar</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="auth-form">
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario o Correo</mat-label>
+          <input matInput formControlName="usuarioOrCorreo" placeholder="Usuario o correo">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="btn-block">
+          INGRESAR
+        </button>
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer class="auth-footer">
+      <a mat-button routerLink="/registro">¿No tienes cuenta? Regístrate aquí</a>
+    </mat-card-footer>
+  </mat-card>
+</div>
