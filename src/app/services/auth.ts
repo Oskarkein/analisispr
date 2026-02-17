@@ -20,4 +20,8 @@ export class AuthService {
   login(credenciales: any): Observable<any> {
     return this.http.post(`${this.API_URL}/login`, credenciales);
   }
+
+  resetPassword(correo: string, nuevaPassword: string): Observable<any> {
+    return this.http.post(`${this.API_URL}/reset-password`, { correo, nuevaPassword });
+  }
 }

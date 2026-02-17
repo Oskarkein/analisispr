@@ -31,11 +31,11 @@ export class RegistroComponent {
     correo: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
     telefono: new FormControl('', [Validators.required]),
-    // CAMBIO: Se usa idRol (sin guion bajo) para coincidir con el backend
+
     idRol: new FormControl(2, [Validators.required]) 
   });
 
-  // Inyectamos el AuthService
+
   constructor(
     private router: Router, 
     private snackBar: MatSnackBar,
@@ -44,7 +44,7 @@ export class RegistroComponent {
 
   onRegistrar() {
     if (this.registroForm.valid) {
-      // Convertimos el valor del formulario a nuestro DTO
+
       const nuevoUsuario = this.registroForm.value as Usuario;
 
       // Llamada real al backend a través del servicio
@@ -63,7 +63,7 @@ export class RegistroComponent {
         },
         error: (err) => {
           console.error('Error al registrar:', err);
-          // Mostramos el mensaje de error que viene del backend
+
           const errorMsg = err.error?.message || 'Error en el servidor';
           this.snackBar.open(errorMsg, 'Entendido', { duration: 5000 });
         }

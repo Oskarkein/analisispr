@@ -25,7 +25,6 @@ export class LoginComponent {
   hide = true; 
 
   loginForm = new FormGroup({
-    // Nombre exacto que espera el req.body del controlador
     usuarioOrCorreo: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(4)])
   });
